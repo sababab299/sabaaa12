@@ -1,5 +1,9 @@
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsUIController : MonoBehaviour
@@ -11,8 +15,19 @@ public class OptionsUIController : MonoBehaviour
     private Slider mySlider;
     [SerializeField]
     private TMP_Dropdown myDropDown;
+    [SerializeField]
+    private TMP_Text myText;
+    [SerializeField]
+    private Button myButton;
+    [SerializeField]
+    private GameObject startPanel;
+    [SerializeField]
+    private GameObject optionPanel;
+
+    List<String> myList = new List<string>();
     void Start()
     {
+        myButton.onClick.AddListener(OnMyButtonClicked);
         myToggle.onValueChanged.AddListener(OnMyToggleClick);
         mySlider.onValueChanged.AddListener(OnMySliderSlide);
         mySlider.minValue = 1;
@@ -32,5 +47,10 @@ public class OptionsUIController : MonoBehaviour
     private void OnMyDropDownChanged(int arg0)
     {
         Debug.Log(myDropDown.options[arg0]);
+    }
+    private void OnMyButtonClicked()
+    {
+        startPanel.SetActive(true);
+        optionPanel.SetActive(false);
     }
 }
