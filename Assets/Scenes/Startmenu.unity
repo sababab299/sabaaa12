@@ -4203,11 +4203,11 @@ RectTransform:
   - {fileID: 1922304679}
   m_Father: {fileID: 352851632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -801.5, y: 744.55}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1750785014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,6 +4354,7 @@ MonoBehaviour:
   myToggle: {fileID: 511938632}
   mySlider: {fileID: 38015983}
   myDropDown: {fileID: 77367538}
+  myText: {fileID: 0}
   myButton: {fileID: 1750785016}
   startPanel: {fileID: 427622093}
   optionPanel: {fileID: 265065589}
