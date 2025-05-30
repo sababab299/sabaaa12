@@ -10,10 +10,18 @@ public class ShootWithRaycast1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, raycastLength))
+            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, raycastLength);
+            Debug.Log(hits.Length);
+            foreach (RaycastHit hit in hits)
             {
-                 Instantiate(ball, hit.point, Quaternion.identity);
-            };
+                Instantiate(ball, hit.point, Quaternion.identity);
+
+                MeshRenderer meshRenderer = hit.transform.GetComponent<MeshRenderer>();
+                if (meshRenderer != null)
+                {
+                    meshRenderer.material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+                }
+            }
         }
         Debug.DrawRay(transform.position, transform.forward * raycastLength, Color.blue);
     }
